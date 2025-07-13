@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>whispers of love</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #fdf6ff, #f3ecff);
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      min-height: 100vh;
+      color: #5c436e;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      text-align: center;
+      color: #a376d3;
+      margin-bottom: 40px;
+      text-shadow: 0 0 6px rgba(163, 118, 211, 0.2);
+    }
+
+    .whispers {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      width: 100%;
+      max-width: 600px;
+      font-size: 1.15rem;
+      line-height: 1.9;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-in-out forwards;
+    }
+
+    .whispers div {
+      opacity: 0;
+      animation: show 1s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes show {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Apply delays for each line */
+    .whispers div:nth-child(1) { animation-delay: 1s; }
+    .whispers div:nth-child(2) { animation-delay: 2s; }
+    .whispers div:nth-child(3) { animation-delay: 3s; }
+    .whispers div:nth-child(4) { animation-delay: 4s; }
+    .whispers div:nth-child(5) { animation-delay: 5s; }
+    .whispers div:nth-child(6) { animation-delay: 6s; }
+    .whispers div:nth-child(7) { animation-delay: 7s; }
+    .whispers div:nth-child(8) { animation-delay: 8s; }
+    .whispers div:nth-child(9) { animation-delay: 9s; }
+    .whispers div:nth-child(10) { animation-delay: 10s; }
+    .whispers div:nth-child(11) { animation-delay: 11s; }
+    .whispers div:nth-child(12) { animation-delay: 12s; }
+    .whispers div:nth-child(13) { animation-delay: 13s; }
+
+    .background-emojis {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .background-emojis span {
+      position: absolute;
+      font-size: 20px;
+      opacity: 0.2;
+      animation: floatEmoji 15s linear infinite;
+    }
+
+    @keyframes floatEmoji {
+      from {
+        transform: translateY(100vh) rotate(0deg);
+      }
+      to {
+        transform: translateY(-150vh) rotate(360deg);
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .whispers {
+        font-size: 1rem;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-emojis" id="bg-emojis"></div>
+
+  <h1>whispers of love</h1>
+
+  <div class="whispers">
+    <div>i love the sound of your name in my head</div>
+    <div>i think my soul was always looking for you</div>
+    <div>you feel like warmth. like home.</div>
+    <div>even when i’m quiet, i’m loving you loudly</div>
+    <div>i hope you always feel chosen. by me.</div>
+    <div>sometimes i whisper “i love you” even when you’re not here</div>
+    <div>being yours feels like a forever i never want to end</div>
+    <div>every version of me loves you</div>
+    <div>you make the world quieter in the best way</div>
+    <div>loving you is the softest thing i’ve ever done</div>
+    <div>we don’t need a perfect story, just a true one</div>
+    <div>i would pick you in every universe</div>
+    <div>even when the words run out, i still love you</div>
+  </div>
+
+  <script>
+    // floating emojis
+    const bg = document.getElementById("bg-emojis");
+    const emojis = ["💗", "💫", "💬", "🌸", "💞", "🫶🏻"];
+    for (let i = 0; i < 40; i++) {
+      const e = document.createElement("span");
+      e.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      e.style.left = Math.random() * 100 + "vw";
+      e.style.top = Math.random() * 100 + "vh";
+      e.style.fontSize = Math.random() * 24 + 18 + "px";
+      e.style.animationDuration = Math.random() * 12 + 6 + "s";
+      bg.appendChild(e);
+    }
+  </script>
+</body>
+</html>
